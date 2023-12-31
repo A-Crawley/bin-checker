@@ -213,14 +213,14 @@ public static class Program
         );
     }
 
-    private static async Task<HttpClient?> GetLightClient(int id = 29)
+    private static async Task<HttpClient?> GetLightClient()
     {
         var handler = new HttpClientHandler();
         handler.ClientCertificateOptions = ClientCertificateOption.Manual;
         handler.ServerCertificateCustomValidationCallback += (_, _, _, _) => true;
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
-        var url = new Uri($"https://192.168.4.{id}/api/qdjy5vwSFGlTujw3QBn-ADiL0yAlq0jl4965doKN/");
+        var url = new Uri("https://192.168.4.29/api/qdjy5vwSFGlTujw3QBn-ADiL0yAlq0jl4965doKN/");
         Console.WriteLine($"Trying {url.AbsoluteUri}");
 
         var client = new HttpClient(handler)
